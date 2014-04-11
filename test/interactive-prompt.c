@@ -7,26 +7,26 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #if defined(__linux)
-
+ 
  #include <editline/readline.h>
  #include <editline/history.h>
  
-#elif defined(_WIN32)
-
+#elif defined(_WIN32) || defined(_WIN64)
  static char buf[2048];
  char* readline(char* prompt){
 	 fputs(prompt, stdout);
 	 fgets(buf, 2048, stdin);
-	 char* line = malloc(strlen(buffer)+1);
-	 strcpy(line, buffer);
+	 char* line = malloc(strlen(buf)+1);
+	 strcpy(line, buf);
 	 return line;
  }
- add_history(char* unused){};
+ void add_history(char* unused){};
  
 #else
- #error Platform not supported
+#error Platform not supported
 #endif
 
 int main(int argc, char** argv){
