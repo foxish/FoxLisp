@@ -2,6 +2,8 @@
  * Build with:
  * gcc -std=c11 -Wall <src> -ledit
  * (ledit may be replaced by -lreadline)
+ * 
+ * needs libedit-dev package installed on linux
  * */
 
 
